@@ -56,13 +56,22 @@ export default function Carousel() {
                     )
                 })}
             </ol>
-            <button onClick={prevImage} aria-label="Previous image">
+
+            <button
+                onClick={prevImage}
+                aria-label="Previous image"
+                disabled={currentIndex <= 0}
+            >
                 <i className="icon-arrow-left" />
             </button>
+
             <p className="carousel__indicator">
                 {currentIndex + 1}/{totalImages}
             </p>
-            <button onClick={nextImage}>
+            <button
+                onClick={nextImage}
+                disabled={currentIndex >= totalImages - 1}
+            >
                 <i className="icon-arrow-right" aria-label="Next image" />
             </button>
         </section>
