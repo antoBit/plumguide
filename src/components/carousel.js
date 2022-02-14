@@ -35,7 +35,7 @@ export default function Carousel() {
         loadMoreImages()
     }
 
-    if (!images) return null
+    if (!images.length) return null
 
     return (
         <section className="carousel" aria-label="Listing">
@@ -59,11 +59,11 @@ export default function Carousel() {
                     )
                 })}
             </ol>
-            <button onClick={prevImage}>
+            <button onClick={prevImage} aria-label="Previous image">
                 <i className="icon-arrow-left" />
             </button>
             <button onClick={nextImage}>
-                <i className="icon-arrow-right" />
+                <i className="icon-arrow-right" aria-label="Next image" />
             </button>
         </section>
     )

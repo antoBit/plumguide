@@ -10,6 +10,7 @@ export default function Image({ ref, src }) {
             src={`${src}${QUERY_PARAMS}`}
             width="100%"
             height="100%"
+            alt="Listing image"
         />
     )
 }

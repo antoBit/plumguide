@@ -1,10 +1,17 @@
 @use 'use/reset';
 @use 'use/theme';
 
-// * {
-//     outline: 2px solid blue;
-// }
+::selection {
+    color: #333;
+    background-color: theme.$primary;
+    -webkit-text-fill-color: #333;
+}
 
+:focus-visible {
+    outline: theme.$primary dashed 2px;
+    outline-offset: 0.5rem;
+    transition: outline-offset 0.3s ease;
+}
 body {
     font-family: theme.$bodyFontFamily, serif;
     font-size: theme.$fontSize;
