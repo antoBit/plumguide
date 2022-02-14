@@ -1,0 +1,14 @@
+@use 'use/mixins';
+@use 'use/theme';
+
+main {
+    height: 100vh;
+    background-color: theme.$secondary;
+    padding: theme.$padding;
+    padding-top: 3rem;
+    @include mixins.flex-layout(column, center, flex-start);
+
+    h1 {
+        font-size: 5rem;
+    }
+}

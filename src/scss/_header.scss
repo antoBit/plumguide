@@ -1,0 +1,10 @@
+@use 'use/theme';
+@use 'use/mixins';
+
+header {
+    height: 5rem;
+    background-color: theme.$background;
+    padding: theme.$padding;
+
+    @include mixins.flex-layout(column, center, flex-start);
+}

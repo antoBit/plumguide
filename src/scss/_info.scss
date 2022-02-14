@@ -1,0 +1,43 @@
+@use 'use/breakpoints';
+@use 'use/mixins';
+@use 'use/theme';
+@use 'use/fonts';
+
+.info {
+    h1 {
+        font-size: 2.5rem;
+        text-align: center;
+        margin: 1rem 0;
+
+        @include breakpoints.tablet {
+            font-size: 5rem;
+        }
+    }
+
+    .features {
+        @include mixins.flex-layout(row, center, space-evenly);
+        margin-bottom: 1rem;
+
+        & > p {
+            margin: 0 0.5rem;
+        }
+    }
+
+    .location {
+        @include mixins.flex-layout(row, center, center);
+        padding: 1rem 0;
+        border: 1px solid theme.$accent;
+        border-left: none;
+        border-right: none;
+
+        & > p {
+            &:nth-child(2) {
+                border: 1px solid theme.$accent;
+                border-top: none;
+                border-bottom: none;
+                margin: 0 0.5rem;
+                padding: 0 0.5rem;
+            }
+        }
+    }
+}

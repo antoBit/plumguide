@@ -1,0 +1,25 @@
+@use 'use/reset';
+@use 'use/theme';
+
+// * {
+//     outline: 2px solid blue;
+// }
+
+body {
+    font-family: theme.$bodyFontFamily, serif;
+    font-size: theme.$fontSize;
+
+    h1,
+    h2,
+    h3,
+    h4 {
+        font-family: theme.$titleFontFamily, serif;
+    }
+
+    div#root {
+        div.App {
+            background-color: theme.$background;
+            color: theme.$text;
+        }
+    }
+}
