@@ -4,7 +4,22 @@
 @use 'use/fonts';
 
 .info {
+    display: grid;
+    grid-template-columns: 40% 60%;
+    grid-template-areas:
+        'name name'
+        'features location';
+
+    @include breakpoints.tablet {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+            'name name'
+            'features features'
+            'location location';
+    }
+
     h1 {
+        grid-area: name;
         font-size: 2.5rem;
         text-align: center;
         margin: 1rem 0;
@@ -15,8 +30,17 @@
     }
 
     .features {
-        @include mixins.flex-layout(row, center, space-evenly);
-        margin-bottom: 1rem;
+        grid-area: features;
+        @include mixins.flex-layout(column, flex-end, center);
+        text-align: right;
+        padding-right: 1rem;
+
+        @include breakpoints.tablet {
+            @include mixins.flex-layout(row, center, space-evenly);
+            text-align: center;
+            margin-bottom: 1rem;
+            padding-right: 0;
+        }
 
         & > p {
             margin: 0 0.5rem;
@@ -24,19 +48,29 @@
     }
 
     .location {
-        @include mixins.flex-layout(row, center, center);
+        grid-area: location;
+        @include mixins.flex-layout(column, flex-start, center);
         padding: 1rem 0;
-        border: 1px solid theme.$accent;
-        border-left: none;
-        border-right: none;
+        border-left: 1px solid theme.$accent;
+        padding-left: 1rem;
+
+        @include breakpoints.tablet {
+            @include mixins.flex-layout(row, center, center);
+            border: 1px solid theme.$accent;
+            border-left: none;
+            border-right: none;
+            padding-left: 0;
+        }
 
         & > p {
             &:nth-child(2) {
-                border: 1px solid theme.$accent;
-                border-top: none;
-                border-bottom: none;
-                margin: 0 0.5rem;
-                padding: 0 0.5rem;
+                @include breakpoints.tablet {
+                    border: 1px solid theme.$accent;
+                    border-top: none;
+                    border-bottom: none;
+                    margin: 0 0.5rem;
+                    padding: 0 0.5rem;
+                }
             }
         }
     }

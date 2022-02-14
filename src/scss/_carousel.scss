@@ -15,13 +15,16 @@
 
     &__indicator {
         @include mixins.flex-layout(row, center, center);
-        @include mixins.positionCenter;
-        right: 5rem;
         width: 2.5rem;
         height: 2.5rem;
         font-size: 95%;
         background-color: white;
         border-radius: 50%;
+
+        @include breakpoints.tablet {
+            @include mixins.positionCenter;
+            right: 5rem;
+        }
     }
 
     &__list {
